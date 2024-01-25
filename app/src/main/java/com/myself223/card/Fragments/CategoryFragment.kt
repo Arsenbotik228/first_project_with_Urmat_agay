@@ -6,10 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
-import com.myself223.card.R
 import com.myself223.card.databinding.FragmentCategoryBinding
-import com.myself223.card.databinding.FragmentHomeBinding
 
 class CategoryFragment : Fragment() {
     private var navController: NavController? = null
