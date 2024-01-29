@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.myself223.card.data.room.Category
+import com.myself223.card.data.room.CategoryModel
 import com.myself223.card.databinding.FragmentAddCategoryBinding
 
 
@@ -36,7 +36,7 @@ class AddCategoryFragment : BottomSheetDialogFragment() {
             binding.btnSave.setOnClickListener{
                 val changeTitle = binding.edNameCategory.text.toString()
                 val position = requireArguments().getInt("position")
-                val category = Category(null,changeTitle)
+                val category = CategoryModel(null,changeTitle)
                 bundle.putSerializable("edit_category",category)
                 bundle.putInt("position",position)
                 requireActivity().supportFragmentManager.setFragmentResult("change_category", bundle)
@@ -45,7 +45,7 @@ class AddCategoryFragment : BottomSheetDialogFragment() {
         }else{
             binding.btnSave.setOnClickListener {
                 val name = binding.edNameCategory.text.toString()
-                val category = Category(name = name)
+                val category = CategoryModel(name = name)
 
                 App.db.getDao().insertNotes(category)
                 navController?.navigateUp()
