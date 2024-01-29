@@ -9,8 +9,22 @@ class Prefs(context: Context) {
 
     fun isShow(): Boolean{
         return prefs.getBoolean("onBoard" , false)
+
     }
     fun changeShow(show :Boolean){
         prefs.edit().putBoolean("onBoard",show).apply()
     }
+    fun saveName(name:String){
+        prefs.edit().putString("name",name).apply()
+    }
+    fun showName():String{
+        return prefs.getString("name","Net invalida").toString()
+    }
+ fun saveEmail(email:String){
+        prefs.edit().putString("email",email).apply()
+    }
+    fun showEmail():String{
+        return prefs.getString("email","Nekuda soboleznovat").toString()
+    }
+
 }

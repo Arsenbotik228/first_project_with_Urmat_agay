@@ -1,4 +1,4 @@
-package com.myself223.card.Fragments
+package com.myself223.card.Fragments.Category
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

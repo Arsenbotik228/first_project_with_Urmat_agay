@@ -3,26 +3,24 @@ package com.myself223.card.Fragments.OnBoard
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.myself223.card.R
-import com.myself223.card.databinding.FragmentOnBoardBinding
 import com.myself223.card.databinding.ItemOnBoardBinding
 
 class OnBoardAdapter : RecyclerView.Adapter<OnBoardAdapter.BoardViewHolder>() {
     private val img = listOf(
-        R.drawable.ic_launcher_background,
-        R.drawable.img_1,
-        R.drawable.img
+        R.drawable.img_2,
+        R.drawable.img,
+        R.drawable.img_1
     )
     private val title = listOf(
-        "Title1",
-        "Изучение",
-        "Давайте начнём !"
+        "ЧУХАНИ ПИСЮНЧИК!",
+        "Я ПРИЕМНЫЙ",
+        "ЛИСТАНИ ЕСЛИ ГЕЙ!"
     )
     private val desc = listOf(
-        "Desc1",
-        "Свайпайте карточку вправо если вы \n запомнили,влево если пока ещё не уверены",
-        "Desc3"
+        "ВАШИ РОДИТЕЛИ СЛУЧАЙНО НЕ ПИРАТЫ?",
+        "СЕРЬЕЗНО ПОСМОТРИТЕ КАРТИНКУ СВЕРХУ",
+        "И ПРОЧИТАЙ ЭТО ЕСЛИ ГЕЙ"
     )
     inner class  BoardViewHolder( val binding: ItemOnBoardBinding):
         RecyclerView.ViewHolder(binding.root){

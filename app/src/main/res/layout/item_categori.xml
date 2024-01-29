@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="102dp"
     android:layout_height="104dp"
-    android:layout_margin="16dp"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="16dp">
 
    <ImageButton
+       android:id="@+id/image_1"
        android:layout_width="102dp"
        android:layout_height="104dp"
        android:outlineSpotShadowColor="#0089B566"
-       android:src="@drawable/item_bg"
-       tools:ignore="SpeakableTextPresentCheck" />
+       tools:ignore="SpeakableTextPresentCheck" >
+   </ImageButton>
+
+   <TextView
+       android:id="@+id/tv_category"
+       android:textStyle="bold"
+       android:textSize="16sp"
+       android:textAlignment="center"
+       android:text="Категория"
+       app:layout_constraintStart_toStartOf="@id/image_1"
+       app:layout_constraintEnd_toEndOf="@id/image_1"
+       app:layout_constraintBottom_toBottomOf="@id/image_1"
+       app:layout_constraintTop_toTopOf="@id/image_1"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
 
 
-</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

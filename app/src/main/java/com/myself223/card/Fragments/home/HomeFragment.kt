@@ -1,5 +1,6 @@
-package com.myself223.card.Fragments
+package com.myself223.card.Fragments.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -26,11 +27,16 @@ class HomeFragment : Fragment() {
 
     }
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (!App.prefs.isShow()){
             findNavController().navigate(R.id.onBoard)
             App.prefs.changeShow(true)
+        }
+
+        binding.btnAdd.setOnClickListener{
+            findNavController().navigate(R.id.addCategoryFragment)
         }
     }
 
