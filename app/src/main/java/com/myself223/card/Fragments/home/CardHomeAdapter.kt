@@ -3,17 +3,18 @@ package com.myself223.card.Fragments.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.myself223.card.Fragments.Category.CategoryAdapter
 import com.myself223.card.data.room.CategoryModel
 import com.myself223.card.databinding.InCategoryBinding
 
-class CardHomeAdapter(private val listener: Clickable): RecyclerView.Adapter<CardHomeAdapter.NoteViewHolder>() {
+class CardHomeAdapter(private val listener: Clickable): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
     private var list = ArrayList<CategoryModel>()
     private var inflater:LayoutInflater?=null
     fun addCategory(list:List<CategoryModel>){
         this.list.addAll(list)
         notifyDataSetChanged()
     }
-    fun changeNote(category: CategoryModel, position: Int) {
+    fun changeCategory(category: CategoryModel, position: Int) {
         list[position] = category
         notifyItemChanged(position)
     }
@@ -22,17 +23,17 @@ class CardHomeAdapter(private val listener: Clickable): RecyclerView.Adapter<Car
         return list
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryAdapter.CategoryViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = InCategoryBinding.inflate(inflater, parent, false)
-        return NoteViewHolder(binding)
+        return CategoryAdapter.CategoryViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return list.size
     }
 
-    override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoryModel, position: Int) {
 
 
     }
@@ -40,10 +41,11 @@ class CardHomeAdapter(private val listener: Clickable): RecyclerView.Adapter<Car
 
     }
 
-   inner class NoteViewHolder(val binding: InCategoryBinding) :
-        RecyclerView.ViewHolder(binding.root) {}
-
-
+    inner class HomeViewHolder(private val binding: InCategoryBinding): RecyclerView.ViewHolder(binding.root) {
+        fun onBind(pos: Int) {
+            binding.txtName.text = list[pos].name
+        }
+    }
     interface Clickable {
 
 

@@ -11,7 +11,7 @@ import java.io.Serializable
 data class CategoryModel(
     @PrimaryKey(autoGenerate = true)
     val name:String,
-    val image: Image
+    val image: String
 
 
 

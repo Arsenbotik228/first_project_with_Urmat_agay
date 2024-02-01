@@ -33,6 +33,23 @@ class MainActivity : AppCompatActivity() {
             if(destination.id == R.id.onBoard) {
 
                 binding.bottomNav.visibility = View.GONE
+
+            } else {
+
+                binding.bottomNav.visibility = View.VISIBLE
+            }
+            if(destination.id == R.id.categoryFragment) {
+
+                binding.bottomNav.visibility = View.GONE
+
+            } else {
+
+                binding.bottomNav.visibility = View.VISIBLE
+            }
+            if(destination.id == R.id.addCategoryFragment) {
+
+                binding.bottomNav.visibility = View.GONE
+
             } else {
 
                 binding.bottomNav.visibility = View.VISIBLE
