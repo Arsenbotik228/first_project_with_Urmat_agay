@@ -16,9 +16,9 @@
         tools:layout="@layout/fragment_category" />
     <fragment
         android:id="@+id/foreStore_Fragment"
-        android:name="com.myself223.card.Fragments.fireStore.ForeStore_Fragment"
+        android:name="com.myself223.card.Fragments.fireStore.FireStore_Fragment"
         android:label="fragment_fore_store_"
-        tools:layout="@layout/fragment_fore_store_" />
+        tools:layout="@layout/fragment_fire_store_" />
 
     <fragment
         android:id="@+id/onBoard"
@@ -28,7 +28,8 @@
     <fragment
         android:id="@+id/addCategoryFragment"
         android:name="com.myself223.card.Fragments.AddCategory.AddCategoryFragment"
-        android:label="AddCategoryFragment" />
+        android:label="AddCategoryFragment"
+        tools:layout="@layout/fragment_add_category"/>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.myself223.card.Fragments.profile.ProfileFragment"

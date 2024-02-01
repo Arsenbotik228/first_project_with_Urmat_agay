@@ -68,7 +68,7 @@ class ProfileFragment : Fragment() {
         binding.name.text = txtName
         binding.email.text = email
         binding.btnSave.setOnClickListener{
-        val name = binding.etNameLoshpeca.text.toString()
+            val name = binding.etNameLoshpeca.text.toString()
             App.prefs.saveName(name)
             val  saveName = App.prefs.showName()
             binding.name.text = saveName

@@ -11,6 +11,7 @@
 
     >
     <androidx.cardview.widget.CardView
+        android:id="@+id/btn_in_category"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         app:cardCornerRadius="12dp"

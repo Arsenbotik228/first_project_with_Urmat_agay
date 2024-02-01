@@ -24,13 +24,6 @@ class OnBoardFragment : Fragment() {
         val adapter = OnBoardAdapter()
         binding.viwePager2.adapter = adapter
 
-        val mainActivity = activity as? MainActivity
-        mainActivity?.hideBottomNav()
     }
 
-    override fun onDestroyView() {
-        val mainActivity = activity as? MainActivity
-        mainActivity?.showBottomNav()
-        super.onDestroyView()
-    }
 }

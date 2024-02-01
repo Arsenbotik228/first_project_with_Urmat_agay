@@ -8,6 +8,7 @@ import com.myself223.card.data.room.CategoryModel
 
 @Dao
 interface Dao {
+
     @Query("SELECT * FROM category")
     fun getAllCategory():List<CategoryModel>
     @Query("SELECT * FROM cards")

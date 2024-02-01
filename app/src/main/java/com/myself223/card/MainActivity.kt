@@ -26,6 +26,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initBottomNav()
+        initBottom()
+    }
+    private fun initBottom(){
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if(destination.id == R.id.onBoard) {
+
+                binding.bottomNav.visibility = View.GONE
+            } else {
+
+                binding.bottomNav.visibility = View.VISIBLE
+            }
+        }
     }
 
     private fun initBottomNav() {
@@ -36,10 +48,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun hideBottomNav() {
-        binding.bottomNav.visibility = View.GONE
-    }
-
-    fun showBottomNav() {
-        binding.bottomNav.visibility = View.VISIBLE
+       binding.bottomNav.visibility = View.GONE
+   }
+   fun showBottomNav() {
+      binding.bottomNav.visibility = View.VISIBLE
     }
 }
