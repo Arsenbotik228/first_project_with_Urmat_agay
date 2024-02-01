@@ -1,15 +1,13 @@
 package com.myself223.card.Fragments.Category
 
-import android.icu.util.ULocale
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.myself223.card.Fragments.home.CardHomeAdapter
 import com.myself223.card.data.room.CategoryModel
 import com.myself223.card.databinding.ItemCategoriBinding
-import java.util.Locale.Category
 
-class CategoryAdapter(private val listener:Clickable):RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
+class CategoryAdapter(private val listener: Context):RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
     private var list = arrayListOf<CategoryModel>()
 
     fun addCategory(list:ArrayList<CategoryModel>) {
