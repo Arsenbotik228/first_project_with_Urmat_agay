@@ -1,4 +1,4 @@
-package com.myself223.card.data.room
+package com.myself223.card.data.room.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

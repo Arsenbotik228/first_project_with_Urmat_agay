@@ -1,8 +1,5 @@
-package com.myself223.card.data.room
+package com.myself223.card.data.room.models
 
-import android.media.Image
-import android.net.Uri
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
@@ -10,7 +7,7 @@ import java.io.Serializable
 @Entity(tableName = "Category")
 data class CategoryModel(
     @PrimaryKey(autoGenerate = true)
-    val name:String,
+    val name:ArrayList<CategoryModel>,
     val image: String
 
 

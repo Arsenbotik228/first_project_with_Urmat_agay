@@ -1,11 +1,9 @@
-package com.myself223.card.data.room
+package com.myself223.card.data.room.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
 import androidx.room.TypeConverters
-import java.io.Serializable
-import java.util.Locale.Category
+import com.myself223.card.data.room.converter.Converter
 
 @Entity(tableName = "Cards")
 data class CardModel (

@@ -1,8 +1,9 @@
-package com.myself223.card.data.room
+package com.myself223.card.data.room.converter
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.myself223.card.data.room.models.CategoryModel
 
 class Converter {
 

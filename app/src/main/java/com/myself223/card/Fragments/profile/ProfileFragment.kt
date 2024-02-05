@@ -9,11 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.myself223.card.App
-import com.myself223.card.data.room.ProfileModels
 import com.myself223.card.databinding.FragmentProfileBinding
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 
 class ProfileFragment : Fragment() {

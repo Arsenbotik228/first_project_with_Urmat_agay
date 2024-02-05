@@ -1,57 +1,54 @@
-package com.myself223.card.Fragments.home
+package com.example.card.fragments.cardhomeadapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.myself223.card.Fragments.Category.CategoryAdapter
-import com.myself223.card.data.room.CategoryModel
-import com.myself223.card.databinding.InCategoryBinding
+import com.myself223.card.Fragments.home.HomeFragment
+import com.myself223.card.data.room.models.CardModel
+import com.myself223.card.data.room.models.CategoryModel
+import com.myself223.card.databinding.ItemCategoriBinding
 
-class CardHomeAdapter(private val listener: Clickable): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
-    private var list = ArrayList<CategoryModel>()
-    private var inflater:LayoutInflater?=null
-    fun addCategory(list:List<CategoryModel>){
+class CardHomeAdapter(
+    private val click: HomeFragment
+): RecyclerView.Adapter<CardHomeAdapter.HomeViewHolder>() {
+
+    private val list = ArrayList<CardModel>()
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setList(list: List<CardModel>) {
         this.list.addAll(list)
         notifyDataSetChanged()
     }
-    fun changeCategory(category: CategoryModel, position: Int) {
-        list[position] = category
-        notifyItemChanged(position)
-    }
-
-    fun getList(): List<CategoryModel>? {
-        return list
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryAdapter.CategoryViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = InCategoryBinding.inflate(inflater, parent, false)
-        return CategoryAdapter.CategoryViewHolder(binding)
-    }
-
-    override fun getItemCount(): Int {
-        return list.size
-    }
-
-    override fun onBindViewHolder(holder: CategoryModel, position: Int) {
 
 
-    }
-    fun onBind(){
-
-    }
-
-    inner class HomeViewHolder(private val binding: InCategoryBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class HomeViewHolder(private val binding: ItemCategoriBinding): RecyclerView.ViewHolder(binding.root) {
         fun onBind(pos: Int) {
             binding.txtName.text = list[pos].name
         }
     }
-    interface Clickable {
 
-
-
-       /* fun edit(position: Int)
-        fun delete(position: Int)*/
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
+        return HomeViewHolder(
+            ItemCategoriBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
+    override fun getItemCount() = list.size
+
+    override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
+        holder.onBind(position)
+        holder.itemView.setOnClickListener {
+            click.OnClick(position, list[position].list)
+        }
+    }
+
+
+    interface Result {
+        fun OnClick(pos: Int, list: List<CategoryModel>)
+    }
 }

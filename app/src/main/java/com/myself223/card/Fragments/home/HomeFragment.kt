@@ -1,55 +1,65 @@
 package com.myself223.card.Fragments.home
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.example.card.fragments.cardhomeadapter.CardHomeAdapter
 import com.myself223.card.App
+import com.myself223.card.Fragments.AddCategory.AddCategoryFragment
 import com.myself223.card.R
-import com.myself223.card.data.room.CategoryModel
+import com.myself223.card.data.room.models.CategoryModel
 import com.myself223.card.databinding.FragmentHomeBinding
 
 
-class HomeFragment : Fragment() {
-    private lateinit var binding: FragmentHomeBinding
-    private var adapter: CardHomeAdapter? = null
-    private var navController: NavController? = null
+class HomeFragment : Fragment(), CardHomeAdapter.Result {
+
+    private val binding: FragmentHomeBinding by lazy {
+        FragmentHomeBinding.inflate(layoutInflater)
+    }
+    private lateinit var adapter: CardHomeAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
-
-
     }
 
-    @SuppressLint("ResourceType")
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        if (!App.prefs.isShow()){
-            findNavController().navigate(R.id.onBoard)
+        initOnBoard()
+        initAdapter()
+        binding.btnAdd.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("key" ,"category")
+            findNavController().navigate(R.id.addCategoryFragment,bundle)
+        }
+
+    }
+
+    private fun initAdapter() {
+        adapter = CardHomeAdapter(this)
+        adapter.setList(App.database.getDao().getAllCard())
+        binding.rvMain.adapter = adapter
+    }
+
+    fun initOnBoard() {
+        if (!App.prefs.isShow()) {
             App.prefs.changeShow(true)
-        }
-
-
-        binding.btnAdd.setOnClickListener{
-            findNavController().navigateUp()
-            findNavController().navigate(R.id.addCategoryFragment)
-        }
-
-        requireActivity().supportFragmentManager.setFragmentResultListener(
-            "change_category", this
-        ) { _, result ->
-            val card: CategoryModel? = result.getSerializable("edit_category") as? CategoryModel
-            card?.let {
-                adapter?.changeNote(it, result.getInt("position"))
-            }
+            findNavController().navigate(R.id.onBoard)
         }
     }
+
+    override fun OnClick(pos: Int, list: List<CategoryModel>) {
+        val bundle  = Bundle()
+        val cat = ArrayList(list)
+        bundle.putSerializable("list", cat)
+        bundle.putInt("pos",pos)
+        findNavController().navigate(R.id.categoryFragment, bundle)
+    }
+
+
 }

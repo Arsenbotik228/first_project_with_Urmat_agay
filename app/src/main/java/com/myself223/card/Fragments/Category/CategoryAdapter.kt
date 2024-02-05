@@ -1,57 +1,37 @@
-package com.myself223.card.Fragments.Category
-
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.myself223.card.data.room.CategoryModel
-import com.myself223.card.databinding.ItemCategoriBinding
+import com.myself223.card.data.room.models.CategoryModel
+import com.myself223.card.databinding.InCategoryBinding
 
-class CategoryAdapter(private val listener: Context):RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
-    private var list = arrayListOf<CategoryModel>()
+class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+    private val list = ArrayList<CategoryModel>()
 
-    fun addCategory(list:ArrayList<CategoryModel>) {
-        this.list = list
+    fun setList(list : List<CategoryModel>){
+        this.list.addAll(list)
         notifyDataSetChanged()
-
     }
-    fun changeCategory(categoryModel: CategoryModel,position: Int){
-        list[position]= categoryModel
-        notifyItemChanged(position)
-    }
-    fun getList():List<CategoryModel>{
-        return list
-    }
+    inner class CategoryViewHolder(private var binding: InCategoryBinding) : RecyclerView.ViewHolder(binding.root){
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemCategoriBinding.inflate(inflater, parent, false)
-        return CategoryViewHolder(binding)
-    }
-
-    override fun getItemCount(): Int {
-        return list.size
-    }
-
-    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.onBind(list[position])
-        holder.binding.tvCategory
-
-
-    }
-
-    class CategoryViewHolder constructor(val binding: ItemCategoriBinding) :RecyclerView.ViewHolder(binding.root)
-    {
-
-        fun onBind(category: CategoryModel) {
-            binding.tvCategory
-
+        fun OnBind(position: Int){
+            binding.txtName.text = list[position].name.toString()
         }
     }
-    interface Clickable {
-        /*fun edit(position: Int)
-        fun delete(position: Int)
-        fun share(note: Notes)*/
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
+        return CategoryViewHolder(
+            InCategoryBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
+
+    override fun getItemCount() = list.size
+
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
+        holder.OnBind(position)
+    }
+
 }
