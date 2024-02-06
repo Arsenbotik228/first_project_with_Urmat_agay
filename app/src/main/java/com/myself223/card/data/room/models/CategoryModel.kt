@@ -6,11 +6,8 @@ import java.io.Serializable
 
 @Entity(tableName = "Category")
 data class CategoryModel(
-    @PrimaryKey(autoGenerate = true)
-    val name:ArrayList<CategoryModel>,
-    val image: String
+    val name: ArrayList<CategoryModel>,
+    val image: Int
+): Serializable
 
 
-
-
-) : Serializable

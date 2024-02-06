@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.card.fragments.cardhomeadapter.CardHomeAdapter
 import com.myself223.card.App
@@ -15,10 +17,14 @@ import com.myself223.card.databinding.FragmentHomeBinding
 
 
 class HomeFragment : Fragment(), CardHomeAdapter.Result {
+    private var navController: NavController? = null
+
+
 
     private val binding: FragmentHomeBinding by lazy {
         FragmentHomeBinding.inflate(layoutInflater)
     }
+
     private lateinit var adapter: CardHomeAdapter
 
     override fun onCreateView(
@@ -30,6 +36,7 @@ class HomeFragment : Fragment(), CardHomeAdapter.Result {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        navController = findNavController()
         initOnBoard()
         initAdapter()
         binding.btnAdd.setOnClickListener {
@@ -46,7 +53,7 @@ class HomeFragment : Fragment(), CardHomeAdapter.Result {
         binding.rvMain.adapter = adapter
     }
 
-    fun initOnBoard() {
+    private fun initOnBoard() {
         if (!App.prefs.isShow()) {
             App.prefs.changeShow(true)
             findNavController().navigate(R.id.onBoard)

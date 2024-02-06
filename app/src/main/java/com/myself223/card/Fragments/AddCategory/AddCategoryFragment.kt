@@ -4,15 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.myself223.card.App
+import com.myself223.card.R
 import com.myself223.card.data.room.models.CardModel
 import com.myself223.card.data.room.models.CategoryModel
 import com.myself223.card.databinding.FragmentAddCategoryBinding
 
 
+@Suppress("DEPRECATION")
 class AddCategoryFragment : BottomSheetDialogFragment() {
 
     private val binding: FragmentAddCategoryBinding by lazy {
@@ -38,14 +39,13 @@ class AddCategoryFragment : BottomSheetDialogFragment() {
                     val list = arguments?.getSerializable("list") as List<CardModel>
                     binding.btnSave.setOnClickListener{
                         val name  = ArrayList<CategoryModel>()
-                        val models = list[pos].list
-                        models.add(CategoryModel(name = name, image = ""))
+                        val models = ArrayList<CategoryModel>()
+                        models.add(CategoryModel(name = name, image = R.drawable.babochka_1))
                     }
                 }
             }
             val name = binding.edNameCategory.text.toString()
             val list = ArrayList<CategoryModel>()
-
 
             App.database.getDao().insertCard(
                 CardModel(name = name, list = list))
@@ -53,18 +53,3 @@ class AddCategoryFragment : BottomSheetDialogFragment() {
         }
     }
 }
-
-private fun <E> List<E>.add(categoryModel: E) {
-    TODO("Not yet implemented")
-}
-
-
-
-
-
-
-
-
-
-
-

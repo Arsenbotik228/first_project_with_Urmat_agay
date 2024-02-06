@@ -20,7 +20,7 @@ class Prefs(context: Context) {
     fun showName():String{
         return prefs.getString("name","Net invalida").toString()
     }
- fun saveEmail(email:String){
+    fun saveEmail(email:String){
         prefs.edit().putString("email",email).apply()
     }
     fun showEmail():String{

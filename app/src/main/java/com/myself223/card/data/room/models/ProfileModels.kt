@@ -10,8 +10,6 @@ data class ProfileModels (
     var id: Int? = null,
     @ColumnInfo(name = "Name")
     val name: String,
-    @ColumnInfo(name = "Famile")
-    val Famile: String,
     @ColumnInfo(name = "Email")
     val email: String,
 

@@ -21,7 +21,6 @@
 
     <ImageView
         android:scaleType="centerCrop"
-        android:src="@drawable/babochka_1"
         android:id="@+id/img_category"
         android:layout_marginVertical="40dp"
         android:layout_width="150dp"

@@ -20,7 +20,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         return CategoryViewHolder(
-            InCategoryBinding.inflate(
+             InCategoryBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

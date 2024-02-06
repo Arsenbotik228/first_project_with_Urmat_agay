@@ -8,17 +8,17 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.myself223.card.Fragments.home.HomeFragment"
-        android:label="fragment_note"
+        android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.myself223.card.Fragments.Category.CategoryFragment"
-        android:label="fragment_add_note"
+        android:label="fragment_add_category"
         tools:layout="@layout/fragment_category" />
     <fragment
-        android:id="@+id/foreStore_Fragment"
+        android:id="@+id/fireStore_Fragment"
         android:name="com.myself223.card.Fragments.fireStore.FireStore_Fragment"
-        android:label="fragment_fore_store_"
+        android:label="fragment_fire_store_"
         tools:layout="@layout/fragment_fire_store_" />
 
     <fragment
@@ -36,4 +36,9 @@
         android:name="com.myself223.card.Fragments.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.myself223.card.Fragments.SignIn.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 </navigation>
