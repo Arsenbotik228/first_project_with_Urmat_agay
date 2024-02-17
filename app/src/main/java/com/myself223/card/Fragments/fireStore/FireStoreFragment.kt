@@ -11,15 +11,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.makeText
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.net.toUri
 import com.bumptech.glide.Glide
-import com.myself223.card.Fragments.home.CardHomeAdapter
-import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.myself223.card.databinding.FragmentFireStoreBinding
-import io.grpc.Context.Storage
 
 
 class FireStoreFragment : Fragment() {

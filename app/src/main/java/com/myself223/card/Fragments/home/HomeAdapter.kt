@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.myself223.card.data.room.models.CardModel
 import com.myself223.card.databinding.ItemCategoriBinding
 
-class CardHomeAdapter(
+class HomeAdapter(
     private val click: Result
-): RecyclerView.Adapter<CardHomeAdapter.HomeViewHolder>() {
+): RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     private val list = ArrayList<CardModel>()
 

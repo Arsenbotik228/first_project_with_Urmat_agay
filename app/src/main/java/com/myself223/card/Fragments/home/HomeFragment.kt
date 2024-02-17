@@ -12,12 +12,12 @@ import com.myself223.card.data.room.models.CardModel
 import com.myself223.card.databinding.FragmentHomeBinding
 
 
-class HomeFragment : Fragment(), CardHomeAdapter.Result {
+class HomeFragment : Fragment(), HomeAdapter.Result {
 
     private val binding: FragmentHomeBinding by lazy {
         FragmentHomeBinding.inflate(layoutInflater)
     }
-    private lateinit var adapter: CardHomeAdapter
+    private lateinit var adapter: HomeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +38,7 @@ class HomeFragment : Fragment(), CardHomeAdapter.Result {
     }
 
     private fun initAdapter() {
-        adapter = CardHomeAdapter(this)
+        adapter = HomeAdapter(this)
         adapter.setList(App.database.getDao().getAllCard())
         binding.rvMain.adapter = adapter
     }
