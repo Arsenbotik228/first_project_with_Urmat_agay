@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.myself223.card.App
+import com.myself223.card.R
 import com.myself223.card.databinding.FragmentProfileBinding
 
 
@@ -30,7 +31,10 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
-     /*   val bundle = Bundle()
+        binding.btnSignUp.setOnClickListener{
+            findNavController().navigateUp()
+            findNavController().navigate(R.id.registerFragment)
+        }     /*   val bundle = Bundle()
          if (arguments!= null){
              binding.etNameLoshpeca.setText(requireArguments().getString("changeName"))
              binding.etFmChecely.setText(requireArguments().getString("changeFamili"))

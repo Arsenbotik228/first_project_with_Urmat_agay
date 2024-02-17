@@ -1,13 +1,15 @@
 package com.myself223.card.data.room.models
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.myself223.card.data.room.converter.Converter
 import java.io.Serializable
 
-@Entity(tableName = "Category")
+
+
 data class CategoryModel(
-    val name: ArrayList<CategoryModel>,
-    val image: Int
+    val name: String,
+    val image: String,
 ): Serializable
+
 
 

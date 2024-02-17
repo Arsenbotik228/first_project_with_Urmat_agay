@@ -20,6 +20,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.myself223.card.R
 import com.myself223.card.databinding.FragmentRegisterBinding
 
@@ -36,7 +37,6 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return binding.root
 
 
@@ -61,7 +61,8 @@ class RegisterFragment : Fragment() {
                         Toast.makeText(requireContext(),"Aкааунт ne sozdan",Toast.LENGTH_SHORT)
                     }
 
-                }
+
+             findNavController().navigate(R.id.homeFragment)   }
             }
 
 

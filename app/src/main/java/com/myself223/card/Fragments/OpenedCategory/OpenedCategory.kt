@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.myself223.card.R
+import com.myself223.card.data.room.models.CategoryModel
 import com.myself223.card.databinding.FragmentOpenedCategoryBinding
 
 class OpenedCategory : BottomSheetDialogFragment() {
@@ -26,9 +27,11 @@ class OpenedCategory : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnBack.setOnClickListener{
-            findNavController().navigate(R.layout.fragment_category)
+            findNavController().navigateUp()
         }
-
+        val pos = arguments?.getInt("position")
+        val text = arguments?.getSerializable("daun") as List<CategoryModel>
+        binding.nameC.text = text[pos!!].name
     }
 
 

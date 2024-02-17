@@ -23,14 +23,14 @@
         android:layout_height="70dp"
         android:layout_margin="30dp"
         android:backgroundTint="@color/white"
+        android:contentDescription="@string/new_name"
         android:padding="20dp"
         app:cornerRadius="200dp"
         app:icon="@drawable/pilus"
         app:iconSize="30dp"
         app:iconTint="@color/whiteBlue"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

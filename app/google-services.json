@@ -12,20 +12,7 @@
           "package_name": "com.myself223.card"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "267594693734-s93qt56mrpth8kvd8kr97sj027hrmv6s.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.myself223.card",
-            "certificate_hash": "f38406b084f3c39b508c0024c06da88b1137d980"
-          }
-        },
-        {
-          "client_id": "267594693734-4d9c5o19vdu6nsgn3go7tvg1ut714154.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyC768wogtc8QyZmn68WusmE2K7jPo5WOTs"
@@ -33,15 +20,10 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "267594693734-4d9c5o19vdu6nsgn3go7tvg1ut714154.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
   ],
-  "configuration_version": "1"
+  "configuration_version": "2"
 }

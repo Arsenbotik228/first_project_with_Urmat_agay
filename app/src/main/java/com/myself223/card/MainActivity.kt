@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.firebase.firestore.FirebaseFirestore
 import com.myself223.card.Fragments.SignIn.RegisterFragment
 import com.myself223.card.databinding.ActivityMainBinding
 
@@ -29,14 +30,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        supportActionBar?.hide()
+       /* supportActionBar?.hide()
         Handler(Looper.getMainLooper()).postDelayed({
         val intent = Intent(this,RegisterFragment::class.java)
         startActivity(intent)
             finish()
 
 
-        },3000)
+        },3000)*/
 
         initBottomNav()
         initBottom()
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initBottom(){
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.onBoard) {
+            if(destination.id == R.id.onBoardFragment) {
 
                 binding.bottomNav.visibility = View.GONE
 

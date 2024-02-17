@@ -1,16 +1,14 @@
-package com.example.card.fragments.cardhomeadapter
+package com.myself223.card.Fragments.home
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.myself223.card.Fragments.home.HomeFragment
 import com.myself223.card.data.room.models.CardModel
-import com.myself223.card.data.room.models.CategoryModel
 import com.myself223.card.databinding.ItemCategoriBinding
 
 class CardHomeAdapter(
-    private val click: HomeFragment
+    private val click: Result
 ): RecyclerView.Adapter<CardHomeAdapter.HomeViewHolder>() {
 
     private val list = ArrayList<CardModel>()
@@ -43,12 +41,12 @@ class CardHomeAdapter(
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         holder.onBind(position)
         holder.itemView.setOnClickListener {
-            click.OnClick(position, list[position].list)
+            click.OnClick(position, list)
         }
     }
 
 
     interface Result {
-        fun OnClick(pos: Int, list: List<CategoryModel>)
+        fun OnClick(pos: Int, list: List<CardModel>)
     }
 }

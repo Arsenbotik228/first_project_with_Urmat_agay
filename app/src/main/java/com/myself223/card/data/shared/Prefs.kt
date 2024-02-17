@@ -26,5 +26,11 @@ class Prefs(context: Context) {
     fun showEmail():String{
         return prefs.getString("email","Nekuda soboleznovat").toString()
     }
+    fun isShow2(): Boolean{
+        return prefs.getBoolean("onRegister" , false)
 
+    }
+    fun changeShow2(show :Boolean){
+        prefs.edit().putBoolean("onRegister",show).apply()
+    }
 }

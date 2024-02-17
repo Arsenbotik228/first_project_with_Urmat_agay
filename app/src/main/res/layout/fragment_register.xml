@@ -23,7 +23,6 @@
         android:id="@+id/textInputLayoutEmail"
         android:layout_width="360dp"
         android:layout_height="60dp"
-
         app:startIconDrawable="@drawable/email_icon"
         app:layout_constraintTop_toBottomOf="@id/text"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,13 +93,13 @@
 
 
 
-    <ImageButton
+    <Button
+        android:text="."
         android:layout_marginTop="10dp"
         android:layout_marginRight="200dp"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="centerInside"
-        android:src="@drawable/img_google"
         android:id="@+id/google_btn"
         app:layout_constraintTop_toBottomOf="@id/textInputLayoutConfirmPassword"
         app:layout_constraintStart_toStartOf="parent"

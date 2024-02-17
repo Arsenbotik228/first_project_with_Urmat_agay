@@ -9,7 +9,7 @@
         />
     <item
         android:orderInCategory="70"
-        android:id="@+id/foreStore_Fragment"
+        android:id="@+id/firestoreFragment"
         android:title="FireStore"
         android:icon="@drawable/fire_store"
         />
