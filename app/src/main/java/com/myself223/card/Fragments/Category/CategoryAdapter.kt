@@ -12,6 +12,7 @@ class CategoryAdapter(private val click2: Result) :
     fun setList(list: List<CategoryModel>) {
         this.list.addAll(list)
         notifyDataSetChanged()
+
     }
 
     inner class CategoryViewHolder(private val binding: InCategoryBinding) :
