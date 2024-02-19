@@ -54,6 +54,7 @@ class HomeFragment : Fragment(), HomeAdapter.Result {
         val bundle  = Bundle()
         val cat = ArrayList(list)
         bundle.putSerializable("list", cat)
+
         bundle.putInt("pos", pos)
         findNavController().navigate(R.id.categoryFragment, bundle)
     }

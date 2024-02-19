@@ -32,7 +32,7 @@ class CategoryFragment : Fragment(), CategoryAdapter.Result {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.btnAdd.setOnClickListener {
-            findNavController().navigate(R.id.addCategoryFragment)
+            findNavController().navigate(R.id.addCardFragment)
         }
 
 
@@ -49,7 +49,7 @@ class CategoryFragment : Fragment(), CategoryAdapter.Result {
                 val model = ArrayList(list)
                 bundle.putSerializable("list", model)
                 bundle.putInt("position", pos)
-                findNavController().navigate(R.id.addCategoryFragment, bundle)
+                findNavController().navigate(R.id.addCardFragment, bundle)
             }
 
         }
@@ -69,6 +69,7 @@ class CategoryFragment : Fragment(), CategoryAdapter.Result {
         bundle.putSerializable("daun", cat)
         bundle.putInt("position", pos)
         findNavController().navigate(R.id.openedCategory, bundle)
+
     }
 }
 

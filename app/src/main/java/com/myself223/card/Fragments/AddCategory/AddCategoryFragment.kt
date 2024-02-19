@@ -39,7 +39,7 @@ class AddCategoryFragment : BottomSheetDialogFragment() {
                     val name = binding.edNameCategory.text.toString()
                     val models = ArrayList<CategoryModel>()
                     models.addAll(list[pos].list)
-                    models.add(CategoryModel(name = name, image = ""))
+                    models.add(CategoryModel(name = name, image = "", id = 0))
 
                     App.database.getDao().updateCard(CardModel(
                         list[pos].id,
@@ -57,5 +57,6 @@ class AddCategoryFragment : BottomSheetDialogFragment() {
                 }
             }
         }
+
     }
 }
